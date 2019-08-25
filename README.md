@@ -1,0 +1,2 @@
+# FlutterNativeHybrid
+new hybrid solution.
