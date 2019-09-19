@@ -55,7 +55,7 @@
 }
 
 - (void)pushFlutterViewController {
-    FlutterViewController* flutterViewController = [[FlutterViewController alloc] initWithProject:nil nibName:nil bundle:nil];
+    __block FlutterViewController* flutterViewController = [[FlutterViewController alloc] initWithProject:nil nibName:nil bundle:nil];
     [flutterViewController setInitialRoute:@"pageA"];
     __weak __typeof(self) weakSelf = self;
     
@@ -69,7 +69,9 @@
         // result 是给flutter的回调， 该回调只能使用一次
         NSLog(@"method=%@ \narguments = %@", call.method, call.arguments);
         if ([call.method isEqualToString:@"platformNavBack"]) {
-            [flutterViewController dismissViewControllerAnimated:YES completion:nil];
+            [flutterViewController dismissViewControllerAnimated:YES completion:^{
+                flutterViewController = nil;
+            }];
             result(@"");
         }
     }];
