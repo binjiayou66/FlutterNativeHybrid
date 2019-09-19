@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-NativePart/Pods-NativePart-frameworks.sh
+${PODS_ROOT}/../../flutter_part/.ios/Flutter/engine/Flutter.framework
+${PODS_ROOT}/../../flutter_part/.ios/Flutter/App.framework
